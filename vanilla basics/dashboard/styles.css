@@ -1,0 +1,51 @@
+
+:root{
+    font-size: 14px;
+
+    --light-blue: #dbeafe;
+    --primary-blue: #93c5fd;
+    --strong-blue: #60a5fa;
+
+
+}
+
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#global-container{
+    height: 100vh;
+
+    
+    display: grid;
+
+
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+
+.page-section{
+    background-color: var(--light-blue);
+    border-radius: 1rem;
+    margin: 0.4rem;
+}
+
+.sidebar{
+    
+}
+
+.header{
+
+}
+
+.user-actions{
+
+}
+
+.user-content{
+
+}
