@@ -74,8 +74,53 @@ body {
 
 .header {
   grid-area: 1/2/1/3;
+
+  display: grid;
+
+  grid-template-columns: 3fr 1fr;
 }
 
+#header-form{
+
+  display: flex;
+  margin-left: 3rem;
+  gap: 1rem;
+  align-items: center;
+  grid-area: 1/1/1/1;
+}
+
+#header-form>span.material-symbols-outlined{
+  font-size: 2.4rem !important;
+
+}
+#header-form>input{
+  border: 0.2rem solid var(--primary-blue);
+  border-radius: 1rem;
+  height: 2rem;
+  width: 80%;
+  padding: 0.6em;
+  padding-left: 1rem;
+}
+
+#header-options{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
+    
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin-right: 3rem;
+}
+
+#header-options>img{
+  height: 4rem;
+  border-radius:100%;
+}
+
+#header-options>p#username{
+  font-weight: 600;
+}
 .user-actions {
   grid-area: 2/2/3/3;
 }
