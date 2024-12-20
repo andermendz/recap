@@ -54,6 +54,9 @@ body {
   grid-area: 2/1/2/1;
 }
 
+.section-title{
+
+}
 .sidebar-element {
   display: flex;
 
@@ -177,24 +180,52 @@ body {
 }
 
 .user-content-projects {
+  grid-area: 1 / 1 / 3 / 2;
+  overflow: auto;
+
 }
 
 .user-projects-container {
+
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 .user-project {
   background-color: aliceblue;
+  border-radius: 1rem;
+  padding: 1rem;
   width: 35rem;
+
+  display: flex;
+  gap: 0.6rem;
+  flex-flow: column;
+}
+
+.user-project>p{
+  font-weight: 700;
+}
+
+.user-project>.project-options{
+  display: flex;
+
+  justify-content: end;
+}
+
+.project-options>div{
+  display: flex;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  background-color: var(--primary-blue);
+  gap: 1rem;
+ 
 }
 
 .user-announcements {
   display: flex;
+  justify-self: end;
   flex-flow: column;
   gap: 1rem;
- 
- 
- 
 }
 
 .announcement {
@@ -209,11 +240,9 @@ body {
   display: flex;
   flex-flow: column;
   gap: 1rem;
- 
 }
 
-
-.trend{
+.trend {
   background-color: aliceblue;
   border-radius: 1rem;
   padding: 0.8rem;
@@ -225,12 +254,12 @@ body {
   gap: 1rem;
 }
 
-.trend>img{
+.trend > img {
   border-radius: 100%;
   height: 5rem;
 }
 
-.trend>div>p.name{
+.trend > div > p.name {
   font-size: 1.2rem;
   font-weight: 400;
 }
