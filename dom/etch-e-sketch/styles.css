@@ -1,0 +1,47 @@
+:root {
+  font-size: 14px;
+
+  --light-blue-gray: #dbefff;
+  --light-blue: #8dccff;
+}
+
+body {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+#global-container {
+  background-color: var(--light-blue-gray);
+  height: 100vh;
+
+  align-items: center;
+
+  display: flex;
+  flex-flow: column;
+}
+
+#main-container {
+  margin-top: 10rem;
+}
+
+#sketch-grid-container {
+  background-color: var(--light-blue);
+  height: 40rem;
+  width: 40rem;
+}
+
+#sketch-grid {
+    background-color: black;
+  display: grid;
+    gap: 1px;
+  height: 100%;
+  width: 100%;
+}
+
+
+.square {
+
+  background-color: beige;
+}
+#sketch-options-container {
+}
