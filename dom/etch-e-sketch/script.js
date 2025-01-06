@@ -13,10 +13,23 @@ for (let i = 0; i <= proportionsRatio; i++) {
   square.id = `square-${i}`;
   sketchGrid.appendChild(square);
 
-  var squares = document.querySelectorAll(".square");
+
 }
 
+ 
+let squares = document.querySelectorAll(".square");
+squares.forEach((square) => {
+  square.addEventListener("mousemove", (e) => {
+    if (isMouseDown) {
+      console.log(square.id);
+      square.style.backgroundColor = '#0000';
+    }
+  });
+});
+
 let isMouseDown = false;
+
+
 
 document.addEventListener("mousedown", (e) => {
   e.preventDefault();
@@ -29,17 +42,31 @@ document.addEventListener("mouseup", () => {
   isMouseDown = false;
 });
 
-squares.forEach((square) => {
-  square.addEventListener("mousemove", (e) => {
-    if (isMouseDown) {
-      console.log(square.id);
-      square.style.backgroundColor = '#0000';
-    }
-  });
-});
+
 
 button.forEach((btn) => {
   btn.onclick = () => {
     console.log("click click");
   };
 });
+
+
+let gridTen = document.getElementById('grid10-10')
+
+gridTen.onclick = () => {
+  var gridProportions = 10;
+  var proportionsRatio = gridProportions * gridProportions;
+
+sketchGrid.style.gridTemplateColumns = `repeat(${gridProportions}, 1fr)`;
+sketchGrid.style.gridTemplateRows = `repeat(${gridProportions}, 1fr)`;
+}
+
+let gridTwent = document.getElementById('grid20-20')
+
+gridTwent.onclick = () => {
+  var gridProportions = 20;
+  var proportionsRatio = gridProportions * gridProportions;
+
+sketchGrid.style.gridTemplateColumns = `repeat(${gridProportions}, 1fr)`;
+sketchGrid.style.gridTemplateRows = `repeat(${gridProportions}, 1fr)`;
+}
