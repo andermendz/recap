@@ -4,6 +4,8 @@ let button = document.querySelectorAll("button");
 let gridTen = document.getElementById("10");
 let gridTwent = document.getElementById("20");
 let gridThird = document.getElementById("30");
+let gridFour = document.getElementById("40");
+let gridFif = document.getElementById("50");
 
 renderGrid(30);
 
@@ -61,4 +63,12 @@ gridTwent.onclick = () => {
 
 gridThird.onclick = () => {
   renderGrid(30);
+};
+
+gridFour.onclick = () => {
+  renderGrid(40);
+};
+
+gridFif.onclick = () => {
+  renderGrid(50);
 };
