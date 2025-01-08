@@ -1,5 +1,6 @@
 let sketchGrid = document.getElementById("sketch-grid");
 let button = document.querySelectorAll("button");
+let inputColor = document.getElementById('input-color')
 
 let gridTen = document.getElementById("10");
 let gridTwent = document.getElementById("20");
@@ -28,7 +29,7 @@ function renderGrid(proportions) {
     square.addEventListener("mousemove", (e) => {
       if (isMouseDown) {
         console.log(square.id);
-        square.style.backgroundColor = "#0000";
+        square.style.backgroundColor = inputColor.value;
       }
     });
   });
