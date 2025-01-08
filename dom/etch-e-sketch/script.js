@@ -20,17 +20,17 @@ function renderGrid(proportions) {
   }
   sketchGrid.style.gridTemplateColumns = `repeat(${gridProportions}, 1fr)`;
   sketchGrid.style.gridTemplateRows = `repeat(${gridProportions}, 1fr)`;
-}
 
-let squares = document.querySelectorAll(".square");
-squares.forEach((square) => {
-  square.addEventListener("mousemove", (e) => {
-    if (isMouseDown) {
-      console.log(square.id);
-      square.style.backgroundColor = "#0000";
-    }
+  let squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.addEventListener("mousemove", (e) => {
+      if (isMouseDown) {
+        console.log(square.id);
+        square.style.backgroundColor = "#0000";
+      }
+    });
   });
-});
+}
 
 let isMouseDown = false;
 
@@ -51,16 +51,14 @@ button.forEach((btn) => {
   };
 });
 
-
-
 gridTen.onclick = () => {
-  renderGrid(10)
+  renderGrid(10);
 };
 
 gridTwent.onclick = () => {
-  renderGrid(20)
+  renderGrid(20);
 };
 
 gridThird.onclick = () => {
-  renderGrid(30)
+  renderGrid(30);
 };
