@@ -73,3 +73,6 @@ gridFour.onclick = () => {
 gridFif.onclick = () => {
   renderGrid(50);
 };
+
+
+// todo - minimal and adaptative grid, better color picking, transitions, improved UI, fractional options
