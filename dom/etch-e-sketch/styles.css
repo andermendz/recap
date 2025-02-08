@@ -1,8 +1,11 @@
 :root {
   font-size: 14px;
 
+    --white:#efff;
   --light-blue-gray: #dbefff;
   --light-blue: #8dccff;
+  --blue-grey: #dbefff;
+  --dark-light-blue: #dbefff;
 }
 
 body {
@@ -41,6 +44,7 @@ body {
 }
 
 .square {
+  outline: 0.rem solid red;
   background-color: white;
 }
 
@@ -51,27 +55,6 @@ body {
 }
 
 input[type="color"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 6rem;
-  height: 4rem;
-  border: none;
-  cursor: pointer;
-  background-color: white; /* Fallback color */
-  border-radius: 10%; /* Slightly rounded borders */
-}
-
-input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-input[type="color"]::-webkit-color-swatch {
-  border: none;
-  border-radius: 10%; /* Slightly rounded borders */
-}
-
-input[type="color"]:hover {
-  outline: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 #options-color {
@@ -80,9 +63,9 @@ input[type="color"]:hover {
   justify-content: center;
 }
 #options-grid {
-  background-color: var(--light-blue);
+  background-color: var(--white);
   padding: 0.4rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   display: flex;
   gap: 0.6rem;
 
@@ -95,11 +78,14 @@ input[type="color"]:hover {
 }
 
 .grid-proportion {
+  cursor: pointer;
   border: 0rem;
-  border-radius: 1.2rem;
-  padding: 0.6rem;
+  border-radius: 1rem;
+  padding: 0.8rem;
   font-size: 1.2rem;
+  background-color: var(--blue-grey);
 }
+
 
 #sketch-options-container > button:hover {
   cursor: pointer;

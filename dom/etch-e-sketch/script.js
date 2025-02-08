@@ -12,7 +12,7 @@ let gridFif = document.getElementById("50");
 renderGrid(30);
 
 function renderProportions(){
-  proportions = [10,30,50,70,100]
+  proportions = [10,20,40,60,80]
 
   proportions.forEach((proportion)=>{
 
