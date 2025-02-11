@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch A Sketch - Light Mode UI</title>
+    <style>
+        /* styles.css - Light Mode UI - Combined into single HTML file */
+
+        :root {
+            --primary-color: #4CAF50; /* Green Primary */
+            --secondary-color: #81C784; /* Light Green Secondary */
+            --background-color: #f0f8f0; /* Very Light Green Background */
+            --text-color: #333; /* Dark Gray Text */
+            --accent-color: #FFC107; /* Amber Accent */
+            --grid-background: #fff; /* White Grid Background */
+            --button-hover-color: #66BB6A; /* Slightly Darker Green Hover */
+
+            /* Consistent UI improvements - Shadows and Border Radii */
+            --container-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --button-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            --border-radius-container: 12px;
+            --border-radius-button: 8px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            align-items: center; /* Center content horizontally */
+        }
+
+        #global-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items in container */
+            padding: 30px;
+            flex: 1;
+            width: 95%; /* Limit width for larger screens */
+            max-width: 1200px; /* Maximum width of the container */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.8em; /* Slightly smaller, more refined title */
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        #main-container {
+            display: flex;
+            background-color: white;
+            border-radius: var(--border-radius-container);
+            padding: 30px;
+            box-shadow: var(--container-shadow);
+            width: 100%;
+            max-width: 900px; /* Consistent max width for main container */
+        }
+
+        #sketch-grid-container {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        #sketch-grid {
+            background-color: var(--grid-background);
+            border-radius: var(--border-radius-container);
+            display: grid;
+            width: 480px; /* Adjusted grid size for light mode */
+            height: 480px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.05); /* Subtle inset shadow */
+            border: 1px solid #eee; /* Very light border for definition */
+        }
+
+        .square {
+            background-color: #f9f9f9; /* Light square color */
+            border: none;
+            box-sizing: border-box;
+            transition: background-color 0.2s ease;
+        }
+
+        #sketch-options-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            gap: 25px;
+        }
+
+        .options-group {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius-container);
+            box-shadow: var(--container-shadow);
+            border: 1px solid #eee; /* Light border for options groups */
+        }
+
+        #options-color label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500; /* Slightly lighter font weight for labels */
+            color: var(--primary-color);
+        }
+
+        #options-color input[type="color"] {
+            width: 100%;
+            height: 45px; /* Adjusted color input height */
+            border: 1px solid #ddd; /* Light border for color input */
+            border-radius: var(--border-radius-button);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            background-color: #fff; /* White color input background */
+        }
+
+        #options-color input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 3px;
+            border-radius: var(--border-radius-button);
+            background-color: #fff;
+        }
+
+        #options-color input[type="color"]::-webkit-color-swatch {
+            border: 1px solid #ccc; /* Light border for color swatch */
+            border-radius: var(--border-radius-button);
+        }
+
+        #options-grid p {
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        #options-grid button {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 12px 20px;
+            margin: 8px;
+            border-radius: var(--border-radius-button);
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: var(--button-shadow);
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+        }
+
+        #options-grid button:hover,
+        #options-grid button.active {
+            background-color: var(--button-hover-color);
+            color: white;
+            box-shadow: var(--button-shadow); /* Maintain shadow on hover/active */
+            transform: translateY(-1px); /* Slight lift effect on hover/active */
+        }
+
+        #options-grid button:active {
+            transform: translateY(0); /* Reset transform on active/click */
+            box-shadow: var(--button-shadow); /* Maintain shadow on active/click */
+        }
+
+
+        #reset-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: var(--border-radius-button);
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: var(--button-shadow);
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        #reset-button:hover {
+            background-color: #ffb300; /* Slightly darker amber on hover */
+        }
+
+        #reset-button:active {
+            transform: scale(0.98); /* Button press effect */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Reduced shadow when active */
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--secondary-color);
+            background-color: var(--background-color); /* Light footer background */
+            margin-top: 30px;
+            border-top: 1px solid #ddd; /* Light top border for footer */
+        }
+
+        footer p {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* Responsive adjustments - Light Mode UI */
+        @media (max-width: 768px) {
+            #main-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            #sketch-options-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: stretch;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .options-group {
+                flex-basis: 45%;
+                margin-bottom: 10px;
+                padding: 15px;
+            }
+
+            #sketch-grid {
+                width: 360px; /* Adjusted grid size for tablet */
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #global-container {
+                padding: 20px;
+            }
+
+            #main-container {
+                padding: 15px;
+            }
+
+            #sketch-options-container {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: stretch;
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .options-group {
+                flex-basis: auto;
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+
+            #sketch-grid {
+                width: 95vw; /* Further adjusted grid size for mobile */
+                height: 95vw;
+            }
+
+            h1 {
+                font-size: 2.4em; /* Smaller title on mobile */
+            }
+
+            #options-grid button, #reset-button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            #options-color input[type="color"] {
+                height: 40px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="global-container">
+        <header>
+            <h1>Etch-A-Sketch</h1>
+        </header>
+        <section id="main-container">
+            <div id="sketch-grid-container">
+                <div id="sketch-grid"></div>
+            </div>
+
+            <aside id="sketch-options-container">
+                <div class="options-group">
+                    <div id="options-color">
+                        <label for="input-color">Color:</label>
+                        <input type="color" name="input-color" id="input-color" value="#000000">
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div id="options-grid">
+                        <p>Grid Size:</p>
+                    </div>
+                </div>
+                 <div class="options-group">
+                    <button id="reset-button">Reset</button>
+                </div>
+            </aside>
+        </section>
+        <footer>
+            <p>&copy; 2025 Etch-A-Sketch Improved</p>
+        </footer>
+    </div>
+
+    <script>
+        // script.js - Combined into single HTML file
+        let sketchGrid = document.getElementById("sketch-grid");
+        let inputColor = document.getElementById('input-color');
+        let optionsGrid = document.getElementById('options-grid');
+        let resetButton = document.getElementById('reset-button');
+
+        let proportions = [10, 20, 30, 40, 50];
+        let currentProportion = 30; // Default grid size
+
+        function renderProportions() {
+            proportions.forEach((proportion) => {
+                let proportionToggle = document.createElement('button');
+                proportionToggle.id = `grid-${proportion}`;
+                proportionToggle.classList.add('grid-proportion');
+
+                proportionToggle.onclick = () => {
+                    currentProportion = proportion;
+                    renderGrid(proportion);
+                    updateButtonStates();
+                    proportionToggle.classList.add('active');
+                }
+
+                proportionToggle.innerHTML = `${proportion} X ${proportion}`;
+                optionsGrid.appendChild(proportionToggle);
+            });
+            updateButtonStates();
+        }
+
+        function updateButtonStates() {
+            document.querySelectorAll('.grid-proportion').forEach(button => {
+                button.classList.remove('active');
+                if (parseInt(button.textContent.split(' ')[0]) === currentProportion) {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+
+        function renderGrid(proportion) {
+            sketchGrid.innerHTML = "";
+            var gridProportion = proportion;
+            var proportionRatio = gridProportion * gridProportion;
+
+            for (let i = 0; i < proportionRatio; i++) {
+                let square = document.createElement("div");
+                square.classList.add("square");
+                square.id = `square-${i}`;
+                sketchGrid.appendChild(square);
+            }
+            sketchGrid.style.gridTemplateColumns = `repeat(${gridProportion}, 1fr)`;
+            sketchGrid.style.gridTemplateRows = `repeat(${gridProportion}, 1fr)`;
+
+            let squares = document.querySelectorAll(".square");
+            squares.forEach((square) => {
+                square.addEventListener("mousemove", (e) => {
+                    if (isMouseDown) {
+                        square.style.backgroundColor = inputColor.value;
+                    }
+                });
+            });
+        }
+
+        let isMouseDown = false;
+
+        document.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            if (e.button === 0) {
+                isMouseDown = true;
+            }
+        });
+
+        document.addEventListener("mouseup", () => {
+            isMouseDown = false;
+        });
+
+        resetButton.onclick = () => {
+            renderGrid(currentProportion);
+        }
+
+
+        renderProportions();
+        renderGrid(currentProportion);
+    </script>
+</body>
+</html>

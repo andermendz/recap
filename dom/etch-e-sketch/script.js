@@ -2,6 +2,7 @@ let sketchGrid = document.getElementById("sketch-grid");
 let button = document.querySelectorAll("button");
 let inputColor = document.getElementById('input-color')
 let optionsGrid = document.getElementById('options-grid')
+let gridReset = document.getElementById('grid-reset')
 
 let gridTen = document.getElementById("10");
 let gridTwent = document.getElementById("20");
@@ -9,28 +10,14 @@ let gridThird = document.getElementById("30");
 let gridFour = document.getElementById("40");
 let gridFif = document.getElementById("50");
 
+let latestProportion = 0;
 renderGrid(30);
 
-function renderProportions(){
-  proportions = [10,20,40,60,80]
-
-  proportions.forEach((proportion)=>{
-
-    proportionToggle = document.createElement('button');
-    proportionToggle.id = proportion;
-    proportionToggle.classList.add('grid-proportion')
-    
-    proportionToggle.onclick = () =>{
-      renderGrid(proportion)
-    }
-
-
-    proportionToggle.innerHTML = ` ${proportion} X ${proportion}`
-    optionsGrid.append(proportionToggle)
-  }) 
+gridReset.onclick = () =>{
+  renderGrid(latestProportion)
 }
 
-renderProportions()
+
 function renderGrid(proportion) {
   sketchGrid.innerHTML = "";
   var gridProportion = proportion;
@@ -54,6 +41,8 @@ function renderGrid(proportion) {
       }
     });
   });
+
+  latestProportion = proportion;
 }
 
 let isMouseDown = false;
@@ -69,11 +58,28 @@ document.addEventListener("mouseup", () => {
   isMouseDown = false;
 });
 
-button.forEach((btn) => {
-  btn.onclick = () => {
-    console.log("click click");
-  };
-});
+
+
+function renderProportionsLists(){
+  proportions = [10,20,40,60,80]
+
+  proportions.forEach((proportion)=>{
+
+    proportionToggle = document.createElement('button');
+    proportionToggle.id = proportion;
+    proportionToggle.classList.add('grid-proportion')
+    
+    proportionToggle.onclick = () =>{
+      renderGrid(proportion)
+    }
+
+
+    proportionToggle.innerHTML = ` ${proportion}`
+    optionsGrid.append(proportionToggle)
+  }) 
+}
+
+renderProportionsLists()
 
 
 

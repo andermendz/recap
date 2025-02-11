@@ -23,9 +23,11 @@ body {
 
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 
   gap: 2rem;
-  flex-flow: column;
+ 
 }
 
 #sketch-grid-container {
@@ -57,25 +59,37 @@ body {
 input[type="color"] {
 }
 
-#options-color {
+#options-general{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--white);
+  padding: 0.8rem;
+  border-radius: 1rem;
+  gap: 2rem;
+}
+
+#grid-reset{
+  cursor: pointer;
+  border: 0rem;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  background-color: var(--light-blue);
 }
 #options-grid {
   background-color: var(--white);
-  padding: 0.4rem;
+  padding: 0.8rem;
   border-radius: 1rem;
   display: flex;
+  flex-flow: column;
   gap: 0.6rem;
 
   flex-wrap: wrap;
   transition: all ease-out 0.2s;
 }
 
-#options-grid:hover {
-  transform: scale(1.04);
-}
+
 
 .grid-proportion {
   cursor: pointer;
@@ -84,9 +98,18 @@ input[type="color"] {
   padding: 0.8rem;
   font-size: 1.2rem;
   background-color: var(--blue-grey);
+  transition: 0.2s all;
 }
 
 
-#sketch-options-container > button:hover {
-  cursor: pointer;
+.grid-proportion:hover {
+  transform: scale(1.04);
+}
+
+
+@media (max-width: 800px){
+  #options-grid{
+    flex-flow: row;
+    
+  }
 }
