@@ -61,7 +61,7 @@ document.addEventListener("mouseup", () => {
 
 
 function renderProportionsLists(){
-  proportions = [10,20,40,60,80]
+  proportions = [10,20,40,60]
 
   proportions.forEach((proportion)=>{
 
@@ -83,4 +83,4 @@ renderProportionsLists()
 
 
 
-// todo - minimal and adaptative grid, better color picking, transitions, improved UI, fractional options
+// todo - improve grid UI;
