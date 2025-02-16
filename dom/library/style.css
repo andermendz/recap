@@ -1,11 +1,29 @@
-:root{
-    font-size: 14px;
+:root {
+  font-size: 14px;
 
+  --grey: #efefef;
+  --grey-blue: #f1f1f1;
+  --blue: #5d48fa;
+  --blue-dark: #1e00fe;
 }
 
-body{
-    margin: 0px;
-    padding: 0px;
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  display: grid;
 
-    height: 100vh;
+  grid-template-rows: 7rem 7rem 1fr;
+}
+
+#header {
+  border-bottom: 0.25rem solid var(--grey-blue);
+}
+
+#head-options {
+  border-bottom: 0.25rem solid var(--grey-blue);
+}
+
+#content {
+  background-color: var(--grey-blue);
 }
