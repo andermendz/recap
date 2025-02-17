@@ -1,10 +1,12 @@
 :root {
   font-size: 14px;
 
+--white:#ffffff;
   --grey: #efefef;
   --grey-blue: #f1f1f1;
   --blue: #5d48fa;
   --blue-dark: #1e00fe;
+  --red: #fa4a4a;
 }
 
 body {
@@ -12,18 +14,79 @@ body {
   padding: 0px;
   height: 100vh;
   display: grid;
-
+    font-family: sans-serif;
   grid-template-rows: 7rem 7rem 1fr;
 }
 
 #header {
   border-bottom: 0.25rem solid var(--grey-blue);
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  align-items: center;
+}
+
+.options-group {
+  display: flex;
+  gap: 1rem;
 }
 
 #head-options {
   border-bottom: 0.25rem solid var(--grey-blue);
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  align-items: center;
 }
 
 #content {
+  padding: 4rem;
+  padding-inline: 8rem;
   background-color: var(--grey-blue);
+  display: flex;
+  flex-flow: column;
+}
+
+#content-title {
+  height: 6rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+}
+
+#books-info {
+  border-bottom: 0.25rem solid var(--grey-blue);
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+
+.book-element{
+    padding: 1rem;
+    background-color: var(--white);
+    width: 20rem;
+   
+}
+
+.book-options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-options>.book-op{
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.book-op.book-edit{
+    border: 0.2rem solid var(--blue);
+}
+.book-op.book-del{
+    background-color:var(--red);
+    color: var(--white);
+    font-weight: 500;
+
 }
