@@ -1,8 +1,9 @@
 :root {
   font-size: 14px;
 
---white:#ffffff;
-  --grey: #efefef;
+  --white: #ffffff;
+  --light-grey: #efefef;
+  --grey: #cccccc;
   --grey-blue: #f1f1f1;
   --blue: #5d48fa;
   --blue-dark: #1e00fe;
@@ -14,7 +15,7 @@ body {
   padding: 0px;
   height: 100vh;
   display: grid;
-    font-family: sans-serif;
+  font-family: sans-serif;
   grid-template-rows: 7rem 7rem 1fr;
 }
 
@@ -22,10 +23,18 @@ body {
   border-bottom: 0.25rem solid var(--grey-blue);
   display: flex;
   justify-content: space-between;
-  padding-inline: 3rem;
+  padding-inline: 4rem;
   align-items: center;
 }
 
+#header > #library-title {
+  display: flex;
+
+  align-items: center;
+  height: 6rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+}
 .options-group {
   display: flex;
   gap: 1rem;
@@ -35,7 +44,7 @@ body {
   border-bottom: 0.25rem solid var(--grey-blue);
   display: flex;
   justify-content: space-between;
-  padding-inline: 3rem;
+  padding-inline: 4rem;
   align-items: center;
 }
 
@@ -61,32 +70,54 @@ body {
   align-items: center;
 }
 
-
-.book-element{
-    padding: 1rem;
-    background-color: var(--white);
-    width: 20rem;
-   
+.book-element {
+  padding: 2rem;
+  background-color: var(--white);
+  border: 0.2rem solid var(--grey);
+  width: 20rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  border-radius: 1rem;
 }
 
-.book-options{
-    display: flex;
-    justify-content: space-between;
+.book-element-header {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: 1.3em;
+  padding-bottom: 0.4rem;
+  color: black;
+  font-weight: 600;
+}
+.book-element-sub{
+  color: grey;
+  font-weight: 600;
+}
+.book-options {
+  display: flex;
+  justify-content: space-between;
 }
 
-.book-options>.book-op{
-    padding: 0.8rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
+.book-options > .book-op {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
-.book-op.book-edit{
-    border: 0.2rem solid var(--blue);
+.book-op {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  height: 1.5rem;
 }
-.book-op.book-del{
-    background-color:var(--red);
-    color: var(--white);
-    font-weight: 500;
+.book-op.book-edit {
+  border: 0.2rem solid var(--grey);
+}
+.book-op.book-del {
+  background-color: var(--red);
+  color: var(--white);
+  font-weight: 500;
+}
 
-}
