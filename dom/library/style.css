@@ -5,6 +5,7 @@
   --light-grey: #efefef;
   --grey: #cccccc;
   --grey-blue: #f1f1f1;
+  --light-blue: #4ea4be;
   --blue: #5d48fa;
   --blue-dark: #1e00fe;
   --red: #fa4a4a;
@@ -31,7 +32,7 @@ body {
   display: flex;
 
   align-items: center;
- 
+
   font-family: "Times New Roman", Times, serif;
   font-size: 3rem;
 }
@@ -48,20 +49,34 @@ body {
   align-items: center;
 }
 
-#search-bar{
-display: flex;
-gap: 1rem;
-border-radius: 0.8rem;
-border: 0.2rem solid var(--grey);
-padding: 0.6rem;
-width: 36rem;
+#search-bar {
+  display: flex;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--grey);
+  padding: 0.6rem;
+  max-width: 36rem;
+  width: 100%;
 }
 
-#search-bar>input{
+#search-bar > input {
   border: none;
   outline: none;
   width: 100%;
   font-size: 1.2rem;
+}
+
+.option {
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  cursor: pointer;
+}
+.option.create-option {
+  background-color: var(--light-blue);
+  color: var(--white);
 }
 
 #content {
@@ -78,22 +93,20 @@ width: 36rem;
   font-size: 3rem;
 }
 
-#books-info {
-  font-size: 1.2rem;
-  border-bottom: 0.25rem solid var(--grey-blue);
+#books-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .book-element {
   padding: 2rem;
   background-color: var(--white);
   border: 0.2rem solid var(--grey);
-  width: 20rem;
+  width: 16rem;
+  height: 18rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
   flex-direction: column;
   border-radius: 1rem;
 }
@@ -102,16 +115,21 @@ width: 36rem;
   display: flex;
   gap: 0.8rem;
   align-items: center;
-  font-size: 1.3em;
+
   padding-bottom: 0.4rem;
   color: black;
   font-weight: 600;
 }
-.book-element-sub{
+
+.book-element-header-title {
+  font-size: 1.2rem;
+}
+.book-element-sub {
   color: grey;
   font-weight: 500;
   padding: 0.2rem;
 }
+
 .book-options {
   display: flex;
   justify-content: space-between;
@@ -141,3 +159,9 @@ width: 36rem;
   font-weight: 500;
 }
 
+.material-symbols-outlined.book-icon {
+  border: 0.2rem solid var(--grey-blue);
+  border-radius: 0.8rem;
+
+  padding: 1rem;
+}
