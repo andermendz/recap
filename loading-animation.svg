@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg  viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+    <![CDATA[
+      .ring {
+        stroke-linecap: round;
+        stroke-width: 22;
+        fill: none;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .ring1 {
+        stroke: #002bc6;
+        animation: spin1 1.6s linear infinite;
+      }
+      .ring2 {
+        stroke: #7998f5;
+        animation: spin2 0.8s linear infinite;
+      }
+      .ring3 {
+        stroke: #4869d2;
+        animation: spin3 0.4s linear infinite;
+      }
+      @keyframes spin1 {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin2 {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes spin3 {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    ]]>
+  </style>
+
+  <!-- Outer ring (dark blue, clockwise) -->
+  <circle cx="0" cy="0" r="80" class="ring ring1" stroke-dasharray="180 220" stroke-dashoffset="0"/>
+  
+  <!-- Middle ring (light blue, counter-clockwise) -->
+  <circle cx="0" cy="0" r="55" class="ring ring2" stroke-dasharray="160 240" stroke-dashoffset="140"/>
+  
+  <!-- Inner ring (medium blue, clockwise) -->
+  <circle cx="0" cy="0" r="30" class="ring ring3" stroke-dasharray="120 280" stroke-dashoffset="0"/>
+</svg>
